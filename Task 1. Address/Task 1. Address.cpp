@@ -5,10 +5,9 @@
 class Address {
 public:
 
-
-    std::string get_output_address(std::string city, std::string address, int home, int flat) {
+    std::string get_output_address() {
         std::stringstream sstm;
-        sstm << city << ", " << address << ", " << home << ", " << flat;
+        sstm << this->m_city << ", " << this->m_address << ", " << this->m_home << ", " << this->m_flat;
         return sstm.str();
         //return city + ", " + address + ", " + static_cast<std::string>(home) + ", " + flat;
     }
@@ -44,13 +43,13 @@ int main()
     int size = 0, home = 0, flat = 0;
     inFile >> size;
     outFile << size << std::endl;
-    Address classAddress(city, street, home, flat);
     for (int i = 0; i < size; i++) {
         inFile >> city;
         inFile >> street;
         inFile >> home;
         inFile >> flat;
-        address = classAddress.get_output_address(city, street, home, flat);
+        Address classAddress(city, street, home, flat);
+        address = classAddress.get_output_address();
         std::cout << address << std::endl;
         outFile << address << std::endl;
     }
